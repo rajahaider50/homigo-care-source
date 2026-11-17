@@ -1,10 +1,9 @@
 import { Link, useRouterState, useRouter } from "@tanstack/react-router";
 import { ChevronLeft, House, FolderHeart, CalendarPlus, ShieldCheck, UserRound } from "lucide-react";
 import type { ReactNode } from "react";
-import logo from "@/assets/homigo-icon.png.asset.json";
 import { cn } from "@/lib/utils";
 
-export const logoUrl = logo.url;
+export const logoUrl = "/favicon.png";
 
 export function PrototypeTag({ light }: { light?: boolean }) {
   return (
