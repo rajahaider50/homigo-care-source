@@ -1,10 +1,13 @@
 # Homigo Care — Android APK
 
-The Capacitor app shell loads the live Homigo Care website at `https://homigo-care-source.vercel.app`; an internet connection is required. The Homigo Care badge opens that website in the Android system browser/Custom Tab. On desktop web it opens a new tab.
+The Capacitor Android app loads the live Homigo Care site at `https://homigo-care-source.vercel.app`; an internet connection is required. The dismissible Homigo Care badge opens the site in a new browser tab on the web and the Android system browser/Custom Tab in the app. The launcher icon uses the Homigo Care logo.
 
-## Build and download the debug APK
+## Build and download a debug APK
 
-The native Android project is checked in at `android/`. In the private GitHub repository, open **Actions → Build Android APK → Run workflow**. When the run succeeds, download the `homigo-care-debug-apk` artifact. The artifact contains `app-debug.apk`, which can be installed on an Android device after allowing installs from that download source.
+1. Open the private GitHub repository and select **Actions → Build Android APK → Run workflow**.
+2. Wait for the workflow to finish successfully.
+3. Download the `homigo-care-debug-apk` artifact and extract `app-debug.apk`.
+4. Install it on Android, allowing installs from the browser or file manager used to download it.
 
 ## Local build
 
@@ -19,4 +22,4 @@ cd android
 
 Output: `android/app/build/outputs/apk/debug/app-debug.apk`.
 
-The project uses Capacitor 8.6.2 and `@capacitor/browser` 8.0.5. Re-run `bunx cap sync android` after Capacitor config or native-plugin changes. The debug APK is for testing/sideloading; Play Store distribution requires a signed release build and a keystore.
+The project uses Capacitor 8.6.2 and `@capacitor/browser` 8.0.5. Re-run `bunx cap sync android` after Capacitor config or native-plugin changes. The debug APK is for testing/sideloading; Play Store distribution requires a signed release build and a private keystore.

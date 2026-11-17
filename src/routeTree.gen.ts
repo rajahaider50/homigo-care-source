@@ -10,30 +10,46 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AdminRouteImport } from './routes/admin'
 import { Route as BookRouteImport } from './routes/book'
+import { Route as BookingsRouteImport } from './routes/bookings'
 import { Route as ConsentRouteImport } from './routes/consent'
 import { Route as FileRouteImport } from './routes/file'
+import { Route as MessagesRouteImport } from './routes/messages'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PatientRouteImport } from './routes/patient'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ReminderRouteImport } from './routes/reminder'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as UploadRouteImport } from './routes/upload'
 import { Route as VisitRouteImport } from './routes/visit'
 import { Route as WhoRouteImport } from './routes/who'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminAuditRouteImport } from './routes/admin.audit'
+import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
+import { Route as AdminFeedbackRouteImport } from './routes/admin.feedback'
+import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
+import { Route as AdminPeopleRouteImport } from './routes/admin.people'
+import { Route as AdminVerifyRouteImport } from './routes/admin.verify'
+import { Route as ProIndexRouteImport } from './routes/pro.index'
+import { Route as ProMessagesRouteImport } from './routes/pro.messages'
+import { Route as ProProfileRouteImport } from './routes/pro.profile'
+import { Route as ProRequestsIndexRouteImport } from './routes/pro.requests.index'
+import { Route as ProRequestsIdRouteImport } from './routes/pro.requests.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BookRoute = BookRouteImport.update({
   id: '/book',
   path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingsRoute = BookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConsentRoute = ConsentRouteImport.update({
@@ -46,6 +62,21 @@ const FileRoute = FileRouteImport.update({
   path: '/file',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MessagesRoute = MessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PatientRoute = PatientRouteImport.update({
+  id: '/patient',
+  path: '/patient',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -54,6 +85,11 @@ const ProfileRoute = ProfileRouteImport.update({
 const ReminderRoute = ReminderRouteImport.update({
   id: '/reminder',
   path: '/reminder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SettingsRoute = SettingsRouteImport.update({
@@ -76,101 +112,273 @@ const WhoRoute = WhoRouteImport.update({
   path: '/who',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuditRoute = AdminAuditRouteImport.update({
+  id: '/admin/audit',
+  path: '/admin/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBookingsRoute = AdminBookingsRouteImport.update({
+  id: '/admin/bookings',
+  path: '/admin/bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFeedbackRoute = AdminFeedbackRouteImport.update({
+  id: '/admin/feedback',
+  path: '/admin/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminMessagesRoute = AdminMessagesRouteImport.update({
+  id: '/admin/messages',
+  path: '/admin/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPeopleRoute = AdminPeopleRouteImport.update({
+  id: '/admin/people',
+  path: '/admin/people',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminVerifyRoute = AdminVerifyRouteImport.update({
+  id: '/admin/verify',
+  path: '/admin/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProIndexRoute = ProIndexRouteImport.update({
+  id: '/pro/',
+  path: '/pro/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProMessagesRoute = ProMessagesRouteImport.update({
+  id: '/pro/messages',
+  path: '/pro/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProProfileRoute = ProProfileRouteImport.update({
+  id: '/pro/profile',
+  path: '/pro/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProRequestsIndexRoute = ProRequestsIndexRouteImport.update({
+  id: '/pro/requests/',
+  path: '/pro/requests/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProRequestsIdRoute = ProRequestsIdRouteImport.update({
+  id: '/pro/requests/$id',
+  path: '/pro/requests/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
   '/book': typeof BookRoute
+  '/bookings': typeof BookingsRoute
   '/consent': typeof ConsentRoute
   '/file': typeof FileRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/patient': typeof PatientRoute
   '/profile': typeof ProfileRoute
   '/reminder': typeof ReminderRoute
+  '/services': typeof ServicesRoute
   '/settings': typeof SettingsRoute
   '/upload': typeof UploadRoute
   '/visit': typeof VisitRoute
   '/who': typeof WhoRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/feedback': typeof AdminFeedbackRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/people': typeof AdminPeopleRoute
+  '/admin/verify': typeof AdminVerifyRoute
+  '/pro/messages': typeof ProMessagesRoute
+  '/pro/profile': typeof ProProfileRoute
+  '/admin/': typeof AdminIndexRoute
+  '/pro/': typeof ProIndexRoute
+  '/pro/requests/$id': typeof ProRequestsIdRoute
+  '/pro/requests/': typeof ProRequestsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
   '/book': typeof BookRoute
+  '/bookings': typeof BookingsRoute
   '/consent': typeof ConsentRoute
   '/file': typeof FileRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/patient': typeof PatientRoute
   '/profile': typeof ProfileRoute
   '/reminder': typeof ReminderRoute
+  '/services': typeof ServicesRoute
   '/settings': typeof SettingsRoute
   '/upload': typeof UploadRoute
   '/visit': typeof VisitRoute
   '/who': typeof WhoRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/feedback': typeof AdminFeedbackRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/people': typeof AdminPeopleRoute
+  '/admin/verify': typeof AdminVerifyRoute
+  '/pro/messages': typeof ProMessagesRoute
+  '/pro/profile': typeof ProProfileRoute
+  '/admin': typeof AdminIndexRoute
+  '/pro': typeof ProIndexRoute
+  '/pro/requests/$id': typeof ProRequestsIdRoute
+  '/pro/requests': typeof ProRequestsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
   '/book': typeof BookRoute
+  '/bookings': typeof BookingsRoute
   '/consent': typeof ConsentRoute
   '/file': typeof FileRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/patient': typeof PatientRoute
   '/profile': typeof ProfileRoute
   '/reminder': typeof ReminderRoute
+  '/services': typeof ServicesRoute
   '/settings': typeof SettingsRoute
   '/upload': typeof UploadRoute
   '/visit': typeof VisitRoute
   '/who': typeof WhoRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/feedback': typeof AdminFeedbackRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/people': typeof AdminPeopleRoute
+  '/admin/verify': typeof AdminVerifyRoute
+  '/pro/messages': typeof ProMessagesRoute
+  '/pro/profile': typeof ProProfileRoute
+  '/admin/': typeof AdminIndexRoute
+  '/pro/': typeof ProIndexRoute
+  '/pro/requests/$id': typeof ProRequestsIdRoute
+  '/pro/requests/': typeof ProRequestsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/admin'
     | '/book'
+    | '/bookings'
     | '/consent'
     | '/file'
+    | '/messages'
+    | '/notifications'
+    | '/patient'
     | '/profile'
     | '/reminder'
+    | '/services'
     | '/settings'
     | '/upload'
     | '/visit'
     | '/who'
+    | '/admin/audit'
+    | '/admin/bookings'
+    | '/admin/feedback'
+    | '/admin/messages'
+    | '/admin/people'
+    | '/admin/verify'
+    | '/pro/messages'
+    | '/pro/profile'
+    | '/admin/'
+    | '/pro/'
+    | '/pro/requests/$id'
+    | '/pro/requests/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/admin'
     | '/book'
+    | '/bookings'
     | '/consent'
     | '/file'
+    | '/messages'
+    | '/notifications'
+    | '/patient'
     | '/profile'
     | '/reminder'
+    | '/services'
     | '/settings'
     | '/upload'
     | '/visit'
     | '/who'
+    | '/admin/audit'
+    | '/admin/bookings'
+    | '/admin/feedback'
+    | '/admin/messages'
+    | '/admin/people'
+    | '/admin/verify'
+    | '/pro/messages'
+    | '/pro/profile'
+    | '/admin'
+    | '/pro'
+    | '/pro/requests/$id'
+    | '/pro/requests'
   id:
     | '__root__'
     | '/'
-    | '/admin'
     | '/book'
+    | '/bookings'
     | '/consent'
     | '/file'
+    | '/messages'
+    | '/notifications'
+    | '/patient'
     | '/profile'
     | '/reminder'
+    | '/services'
     | '/settings'
     | '/upload'
     | '/visit'
     | '/who'
+    | '/admin/audit'
+    | '/admin/bookings'
+    | '/admin/feedback'
+    | '/admin/messages'
+    | '/admin/people'
+    | '/admin/verify'
+    | '/pro/messages'
+    | '/pro/profile'
+    | '/admin/'
+    | '/pro/'
+    | '/pro/requests/$id'
+    | '/pro/requests/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRoute
   BookRoute: typeof BookRoute
+  BookingsRoute: typeof BookingsRoute
   ConsentRoute: typeof ConsentRoute
   FileRoute: typeof FileRoute
+  MessagesRoute: typeof MessagesRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PatientRoute: typeof PatientRoute
   ProfileRoute: typeof ProfileRoute
   ReminderRoute: typeof ReminderRoute
+  ServicesRoute: typeof ServicesRoute
   SettingsRoute: typeof SettingsRoute
   UploadRoute: typeof UploadRoute
   VisitRoute: typeof VisitRoute
   WhoRoute: typeof WhoRoute
+  AdminAuditRoute: typeof AdminAuditRoute
+  AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminFeedbackRoute: typeof AdminFeedbackRoute
+  AdminMessagesRoute: typeof AdminMessagesRoute
+  AdminPeopleRoute: typeof AdminPeopleRoute
+  AdminVerifyRoute: typeof AdminVerifyRoute
+  ProMessagesRoute: typeof ProMessagesRoute
+  ProProfileRoute: typeof ProProfileRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  ProIndexRoute: typeof ProIndexRoute
+  ProRequestsIdRoute: typeof ProRequestsIdRoute
+  ProRequestsIndexRoute: typeof ProRequestsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -182,18 +390,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/book': {
       id: '/book'
       path: '/book'
       fullPath: '/book'
       preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bookings': {
+      id: '/bookings'
+      path: '/bookings'
+      fullPath: '/bookings'
+      preLoaderRoute: typeof BookingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/consent': {
@@ -210,6 +418,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/messages': {
+      id: '/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/patient': {
+      id: '/patient'
+      path: '/patient'
+      fullPath: '/patient'
+      preLoaderRoute: typeof PatientRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -222,6 +451,13 @@ declare module '@tanstack/react-router' {
       path: '/reminder'
       fullPath: '/reminder'
       preLoaderRoute: typeof ReminderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/settings': {
@@ -252,21 +488,121 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/audit': {
+      id: '/admin/audit'
+      path: '/admin/audit'
+      fullPath: '/admin/audit'
+      preLoaderRoute: typeof AdminAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/bookings': {
+      id: '/admin/bookings'
+      path: '/admin/bookings'
+      fullPath: '/admin/bookings'
+      preLoaderRoute: typeof AdminBookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/feedback': {
+      id: '/admin/feedback'
+      path: '/admin/feedback'
+      fullPath: '/admin/feedback'
+      preLoaderRoute: typeof AdminFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/messages': {
+      id: '/admin/messages'
+      path: '/admin/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminMessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/people': {
+      id: '/admin/people'
+      path: '/admin/people'
+      fullPath: '/admin/people'
+      preLoaderRoute: typeof AdminPeopleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/verify': {
+      id: '/admin/verify'
+      path: '/admin/verify'
+      fullPath: '/admin/verify'
+      preLoaderRoute: typeof AdminVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pro/': {
+      id: '/pro/'
+      path: '/pro'
+      fullPath: '/pro/'
+      preLoaderRoute: typeof ProIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pro/messages': {
+      id: '/pro/messages'
+      path: '/pro/messages'
+      fullPath: '/pro/messages'
+      preLoaderRoute: typeof ProMessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pro/profile': {
+      id: '/pro/profile'
+      path: '/pro/profile'
+      fullPath: '/pro/profile'
+      preLoaderRoute: typeof ProProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pro/requests/': {
+      id: '/pro/requests/'
+      path: '/pro/requests'
+      fullPath: '/pro/requests/'
+      preLoaderRoute: typeof ProRequestsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pro/requests/$id': {
+      id: '/pro/requests/$id'
+      path: '/pro/requests/$id'
+      fullPath: '/pro/requests/$id'
+      preLoaderRoute: typeof ProRequestsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
   BookRoute: BookRoute,
+  BookingsRoute: BookingsRoute,
   ConsentRoute: ConsentRoute,
   FileRoute: FileRoute,
+  MessagesRoute: MessagesRoute,
+  NotificationsRoute: NotificationsRoute,
+  PatientRoute: PatientRoute,
   ProfileRoute: ProfileRoute,
   ReminderRoute: ReminderRoute,
+  ServicesRoute: ServicesRoute,
   SettingsRoute: SettingsRoute,
   UploadRoute: UploadRoute,
   VisitRoute: VisitRoute,
   WhoRoute: WhoRoute,
+  AdminAuditRoute: AdminAuditRoute,
+  AdminBookingsRoute: AdminBookingsRoute,
+  AdminFeedbackRoute: AdminFeedbackRoute,
+  AdminMessagesRoute: AdminMessagesRoute,
+  AdminPeopleRoute: AdminPeopleRoute,
+  AdminVerifyRoute: AdminVerifyRoute,
+  ProMessagesRoute: ProMessagesRoute,
+  ProProfileRoute: ProProfileRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  ProIndexRoute: ProIndexRoute,
+  ProRequestsIdRoute: ProRequestsIdRoute,
+  ProRequestsIndexRoute: ProRequestsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

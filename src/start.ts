@@ -26,8 +26,8 @@ const csrfMiddleware = createCsrfMiddleware({
 
 // requestMiddleware runs on every request; functionMiddleware only on server functions, where
 // client sendContext is unvalidated input. Append to these arrays, never replace them.
-// If managed Supabase authentication is added later, install its authorization middleware here
-// only when server functions require it and no existing middleware already provides the token.
+// If a managed authentication provider is configured later, add its authorization middleware
+// here only after confirming it does not replace middleware already required by the project.
 export const startInstance = createStart(() => ({
   requestMiddleware: [errorMiddleware, csrfMiddleware],
 }));

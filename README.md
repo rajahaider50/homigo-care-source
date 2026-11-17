@@ -1,14 +1,12 @@
 # Homigo Care — by Haider-Ai
 
-Homigo Care brings home nursing, doctor consultations, lab services, medicine reminders, and family health records together in one place.
+Homigo Care is a mobile-first care prototype with patient, healthcare professional, and admin panels. It includes appointment booking, family health files, professional verification, service requests, messaging, notifications, and admin audit/booking workflows. Prototype data is stored on the current device; a shared production backend and real role sign-in are not configured yet.
 
 ## Development
 
 Requirements: Node.js 22+ and Bun 1.4.4+.
 
 ```sh
-git clone <repository-url>
-cd homigo-care-source
 bun install --frozen-lockfile
 bun run dev
 ```
@@ -17,16 +15,17 @@ bun run dev
 
 ```sh
 bun run build
-bun test
+bun run test
 bun run lint
 ```
 
-## Technology
+## Android testing
 
-- TanStack Start and React
-- TypeScript
-- Tailwind CSS
-- Capacitor for the Android app shell
-- Vercel for production hosting
+The checked-in Capacitor Android project loads the published Homigo Care website. Use GitHub Actions → **Build Android APK** → **Run workflow**, then download the `homigo-care-debug-apk` artifact. See [ANDROID_APK.md](./ANDROID_APK.md).
 
-Android packaging and installation instructions are in [ANDROID_APK.md](./ANDROID_APK.md).
+## Main routes
+
+- `/`: choose Patient, Doctor, Nurse, or Admin
+- `/patient`, `/book`, `/bookings`, `/file`, `/messages`: patient workflows
+- `/pro`, `/pro/requests`, `/pro/messages`, `/pro/profile`, `/upload`: healthcare professional workflows
+- `/admin`, `/admin/verify`, `/admin/bookings`, `/admin/people`, `/admin/messages`, `/admin/audit`: administration workflows
