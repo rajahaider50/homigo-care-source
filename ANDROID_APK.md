@@ -1,20 +1,22 @@
-# Homigo Care — Android APK (Capacitor + Android Studio)
+# Homigo Care — Android APK
 
-The app runs server-side pages, so the Android shell loads the published app URL.
+The Capacitor app shell loads the live Homigo Care website at `https://homigo-care-source.vercel.app`; an internet connection is required. The Homigo Care badge opens that website in the Android system browser/Custom Tab. On desktop web it opens a new tab.
 
-1. Publish the app in Lovable and copy the URL.
-2. Put that URL in `capacitor.config.json` → `server.url`.
-3. Install: Node.js 20+, Android Studio (with Android SDK), Git.
-4. In the project folder:
-   ```
-   npm install
-   npm install @capacitor/core @capacitor/cli @capacitor/android
-   npx cap add android
-   npx cap sync android
-   npx cap open android
-   ```
-5. App icon: Android Studio → right-click `app/res` → New → Image Asset → choose `public/favicon.png` (or the full logo).
-6. Debug APK: Build → Build Bundle(s) / APK(s) → Build APK(s). File: `android/app/build/outputs/apk/debug/app-debug.apk`.
-7. Play Store: Build → Generate Signed Bundle / APK → create a keystore → choose AAB.
+## Build and download the debug APK
 
-After app changes: publish again. Only re-run `npx cap sync android` if you change `capacitor.config.json`.
+The native Android project is checked in at `android/`. In the private GitHub repository, open **Actions → Build Android APK → Run workflow**. When the run succeeds, download the `homigo-care-debug-apk` artifact. The artifact contains `app-debug.apk`, which can be installed on an Android device after allowing installs from that download source.
+
+## Local build
+
+Requirements: Node.js 22+, Bun 1.4.4+, JDK 21, Android SDK Platform 36 and Build-Tools 36.0.0.
+
+```sh
+bun install --frozen-lockfile
+bunx cap sync android
+cd android
+./gradlew --no-daemon assembleDebug
+```
+
+Output: `android/app/build/outputs/apk/debug/app-debug.apk`.
+
+The project uses Capacitor 8.6.2 and `@capacitor/browser` 8.0.5. Re-run `bunx cap sync android` after Capacitor config or native-plugin changes. The debug APK is for testing/sideloading; Play Store distribution requires a signed release build and a keystore.

@@ -47,7 +47,7 @@ const tabs = [
 export function TabBar() {
   const path = useRouterState({ select: (s) => s.location.pathname });
   return (
-    <nav className="pb-safe fixed bottom-0 left-1/2 z-30 w-full max-w-[440px] -translate-x-1/2 border-t border-border/70 bg-surface/90 backdrop-blur-xl">
+    <nav className="pb-safe fixed bottom-0 left-1/2 z-30 w-full max-w-[440px] -translate-x-1/2 border-t border-border/70 bg-surface/95 backdrop-blur-sm">
       <ul className="grid grid-cols-5 px-1 pt-2">
         {tabs.map(({ to, label, icon: Icon }) => {
           const active = path === to;

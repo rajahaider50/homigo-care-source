@@ -3,7 +3,7 @@
   "appName": "Homigo Care",
   "webDir": "public",
   "server": {
-    "url": "https://familycare-trust-compass.lovable.app",
+    "url": "https://homigo-care-source.vercel.app",
     "cleartext": false
   },
   "android": { "backgroundColor": "#1B6B63" }

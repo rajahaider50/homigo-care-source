@@ -82,6 +82,9 @@
   * { border-color: var(--color-border); }
   html, body { background: oklch(0.93 0.01 200); }
   body { color: var(--color-foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+  a, button, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  a:focus:not(:focus-visible), button:focus:not(:focus-visible), [role="button"]:focus:not(:focus-visible) { outline: none; box-shadow: none; }
+  a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
   h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 
@@ -93,7 +96,7 @@
 @utility shadow-accent { box-shadow: var(--shadow-accent); }
 @utility pt-safe { padding-top: max(env(safe-area-inset-top), 12px); }
 @utility pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 10px); }
-@utility press { transition: transform .15s ease; &:active { transform: scale(.96); } }
+@utility press { transition: transform .11s ease-out; touch-action: manipulation; &:active { transform: scale(.985); } }
 @utility font-urdu { font-family: var(--font-urdu); line-height: 2.1; }
 
 @keyframes sos-pulse { 0% { box-shadow: 0 0 0 0 oklch(0.6 0.21 27 / 55%);} 70% { box-shadow: 0 0 0 18px oklch(0.6 0.21 27 / 0%);} 100% { box-shadow: 0 0 0 0 oklch(0.6 0.21 27 / 0%);} }
@@ -108,6 +111,15 @@
 @utility animate-heartbeat { animation: heartbeat 1.6s ease-in-out infinite; }
 @utility animate-float { animation: float-y 3s ease-in-out infinite; }
 @utility animate-ping-dot { animation: ping-dot 1.6s cubic-bezier(0,0,.2,1) infinite; }
-@utility animate-screen { animation: screen-in .35s ease-out both; }
+@utility animate-screen { animation: screen-in .16s ease-out both; }
 @utility animate-route { stroke-dasharray: 6 6; animation: route-move 1.2s linear infinite; }
 @utility icon-hover { & svg { transition: transform .3s cubic-bezier(.34,1.56,.64,1); } &:hover svg, &:active svg { transform: scale(1.12) rotate(-4deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { BrandBadge } from "@/components/app/brand-badge";
 import { TabBar } from "@/components/app/shell";
 
 function NotFoundComponent() {
@@ -132,6 +133,7 @@ function RootComponent() {
       <div className="relative mx-auto min-h-screen w-full max-w-[440px] bg-background shadow-float">
         <Outlet />
         <TabBar />
+        <BrandBadge />
       </div>
     </QueryClientProvider>
   );
