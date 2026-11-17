@@ -11,7 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { reportAppError } from "../lib/app-error-reporting";
 import { BrandBadge } from "@/components/app/brand-badge";
 import { TabBar } from "@/components/app/shell";
 
@@ -41,7 +41,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportAppError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
@@ -86,12 +86,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#1B6B63" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { title: "Homigo Care — Because Care Begins at Home" },
-      { name: "description", content: "Home nurses, doctors, labs and your family's health records in one app." },
+      {
+        name: "description",
+        content: "Home nurses, doctors, labs and your family's health records in one app.",
+      },
       { property: "og:title", content: "Homigo Care" },
-      { property: "og:description", content: "Home nurses, doctors, labs and your family's health records in one app." },
+      {
+        property: "og:description",
+        content: "Home nurses, doctors, labs and your family's health records in one app.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-          ],
+    ],
     links: [
       {
         rel: "stylesheet",
@@ -101,7 +107,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Outfit:wght@500;600;700&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Outfit:wght@500;600;700&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,

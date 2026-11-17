@@ -1,33 +1,9 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
+# Haider-Ai Project Notes
 
-## What Lovable manages
-
-Rules outside this block are the project's own. Change the pieces below in
-Lovable, not by hand. With the [Lovable MCP](https://mcp.lovable.dev)
-connected, `send_message` asks Lovable to do it; otherwise ask the user to
-use the editor.
-
-- **Database.** Do not add or edit `supabase/migrations/` or `drizzle/`.
-  Ask Lovable to change the schema.
-- **Generated files.** Do not edit a file whose header says it is automatically
-  generated.
-- **AI gateway.** Keep model calls on Lovable's gateway, and keep
-  `LOVABLE_API_KEY` out of browser code.
-- **Connectors.** Lovable provides native connectors. `list_connectors` shows
-  which are enabled; `add_connector` only returns the dashboard link. When a
-  connector is enabled, calls go through the connector gateway and need
-  `LOVABLE_API_KEY`. When Lovable does not provide one, users can bring their
-  own key and store it in Secrets.
-- **Secrets.** Lovable manages them. Do not put secret values in the repo.
-<!-- LOVABLE:END -->
-
-- Mobile app shell (header, tab bar, cards, buttons) lives in src/components/app/shell.tsx; each screen is its own route so it works as both web app and wrapped native app.
-- Android packaging uses Capacitor with server.url pointing to the published app (see ANDROID_APK.md), because pages are server-rendered.
+- Never rewrite published Git history. Do not force-push, rebase, amend, or squash commits that have already been pushed.
+- Keep the main branch buildable; validate relevant changes before pushing.
+- Do not edit files identified as automatically generated unless the task specifically requires regenerating them.
+- Keep secrets out of source code, browser bundles, logs, and commits. Use the project's secret store for credentials.
+- Do not change database schema or migrations as part of unrelated UI or branding work.
+- Mobile app shell (header, tab bar, cards, buttons) lives in `src/components/app/shell.tsx`; each screen is its own route so it works as both web app and wrapped native app.
+- Android packaging uses Capacitor with `server.url` pointing to the published app (see `ANDROID_APK.md`), because pages are server-rendered.
