@@ -1,0 +1,10 @@
+{
+  "appId": "com.homigocare.app",
+  "appName": "Homigo Care",
+  "webDir": "public",
+  "server": {
+    "url": "https://familycare-trust-compass.lovable.app",
+    "cleartext": false
+  },
+  "android": { "backgroundColor": "#1B6B63" }
+}
